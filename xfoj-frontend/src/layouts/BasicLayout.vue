@@ -1,7 +1,7 @@
 <template>
   <div id="basicLayout">
     <!--  布局模板-->
-    <a-layout style="height: 400px">
+    <a-layout style="min-height: 100vh">
       <!-- 导航栏-->
       <a-layout-header class="header">
         <global-header />
@@ -25,19 +25,20 @@
 #basicLayout .header {
   //background: red;
   box-shadow: #eee 1px 1px 5px;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
 }
 
 #basicLayout .content {
   background: linear-gradient(to right, #e0e5ec, #f6f8fb);
 
   margin-bottom: 16px;
+  padding: 20px;
 }
 
 #basicLayout .footer {
   background: #efefef;
   padding: 16px;
-  position: fixed;
+  position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
