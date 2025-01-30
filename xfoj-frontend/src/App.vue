@@ -38,5 +38,4 @@ const doInit = () => {
 onMounted(() => {
   doInit();
 });
-
 </script>
