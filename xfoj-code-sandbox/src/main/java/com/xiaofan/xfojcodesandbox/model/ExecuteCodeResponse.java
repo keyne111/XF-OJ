@@ -1,4 +1,4 @@
-package com.xiaofan.xfoj.judge.codesandbox.model;
+package com.xiaofan.xfojcodesandbox.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -5,7 +5,7 @@ import com.xiaofan.xfoj.judge.strategy.DefaultJudgeStrategy;
 import com.xiaofan.xfoj.judge.strategy.JavaLanguageJudgeStrategy;
 import com.xiaofan.xfoj.judge.strategy.JudgeContext;
 import com.xiaofan.xfoj.judge.strategy.JudgeStrategy;
-import com.xiaofan.xfoj.model.dto.questionsubmit.JudgeInfo;
+import com.xiaofan.xfoj.judge.codesandbox.model.JudgeInfo;
 import com.xiaofan.xfoj.model.entity.QuestionSubmit;
 import org.springframework.stereotype.Service;
 

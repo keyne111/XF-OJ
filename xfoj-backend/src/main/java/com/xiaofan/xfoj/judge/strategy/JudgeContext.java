@@ -1,7 +1,7 @@
 package com.xiaofan.xfoj.judge.strategy;
 
 import com.xiaofan.xfoj.model.dto.question.JudgeCase;
-import com.xiaofan.xfoj.model.dto.questionsubmit.JudgeInfo;
+import com.xiaofan.xfoj.judge.codesandbox.model.JudgeInfo;
 import com.xiaofan.xfoj.model.entity.Question;
 import com.xiaofan.xfoj.model.entity.QuestionSubmit;
 import lombok.Data;

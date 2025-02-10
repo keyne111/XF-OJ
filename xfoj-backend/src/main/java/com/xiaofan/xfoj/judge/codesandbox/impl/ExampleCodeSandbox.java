@@ -3,7 +3,7 @@ package com.xiaofan.xfoj.judge.codesandbox.impl;
 import com.xiaofan.xfoj.judge.codesandbox.CodeSandbox;
 import com.xiaofan.xfoj.judge.codesandbox.model.ExecuteCodeRequest;
 import com.xiaofan.xfoj.judge.codesandbox.model.ExecuteCodeResponse;
-import com.xiaofan.xfoj.model.dto.questionsubmit.JudgeInfo;
+import com.xiaofan.xfoj.judge.codesandbox.model.JudgeInfo;
 import com.xiaofan.xfoj.model.enums.JudgeInfoMessageEnum;
 import com.xiaofan.xfoj.model.enums.QuestionSubmitStatusEnum;
 import lombok.extern.slf4j.Slf4j;

@@ -2,7 +2,7 @@ package com.xiaofan.xfoj.model.vo;
 
 import cn.hutool.json.JSONUtil;
 
-import com.xiaofan.xfoj.model.dto.questionsubmit.JudgeInfo;
+import com.xiaofan.xfoj.judge.codesandbox.model.JudgeInfo;
 import com.xiaofan.xfoj.model.entity.QuestionSubmit;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;

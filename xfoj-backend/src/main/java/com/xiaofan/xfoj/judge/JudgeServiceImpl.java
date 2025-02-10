@@ -10,7 +10,7 @@ import com.xiaofan.xfoj.judge.codesandbox.model.ExecuteCodeRequest;
 import com.xiaofan.xfoj.judge.codesandbox.model.ExecuteCodeResponse;
 import com.xiaofan.xfoj.judge.strategy.JudgeContext;
 import com.xiaofan.xfoj.model.dto.question.JudgeCase;
-import com.xiaofan.xfoj.model.dto.questionsubmit.JudgeInfo;
+import com.xiaofan.xfoj.judge.codesandbox.model.JudgeInfo;
 import com.xiaofan.xfoj.model.entity.Question;
 import com.xiaofan.xfoj.model.entity.QuestionSubmit;
 import com.xiaofan.xfoj.model.enums.QuestionSubmitStatusEnum;
@@ -20,8 +20,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
