@@ -1,12 +1,14 @@
-package com.xiaofan.xfoj.judge.codesandbox;
+package com.xiaofan.xfojcodesandbox;
 
 
-import com.xiaofan.xfoj.judge.codesandbox.model.ExecuteCodeRequest;
-import com.xiaofan.xfoj.judge.codesandbox.model.ExecuteCodeResponse;
+import com.xiaofan.xfojcodesandbox.model.ExecuteCodeRequest;
+import com.xiaofan.xfojcodesandbox.model.ExecuteCodeResponse;
+import org.springframework.stereotype.Component;
 
 /**
  * 代码沙箱接口定义
  */
+@Component
 public interface CodeSandbox {
 
     /**
