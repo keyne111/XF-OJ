@@ -23,10 +23,17 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.xiaofan.xfoj.utils.CookieUtil;
+import com.xiaofan.xfoj.utils.JsonUtil;
+import com.xiaofan.xfoj.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,11 +51,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 @Slf4j
 public class UserController {
-
+    @Autowired
+    private RedisUtil redisUtil;
     @Resource
     private UserService userService;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
     // region 登录相关
+
+    @GetMapping("/save")
+    public String save(String key, String value){
+        redisTemplate.opsForValue().set(key, value);
+        return key+","+value;
+    }
 
     /**
      * 用户注册
@@ -79,7 +95,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public BaseResponse<LoginUserVO> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
+    public BaseResponse<LoginUserVO> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request, HttpSession session, HttpServletResponse response) {
         if (userLoginRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -89,6 +105,12 @@ public class UserController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         LoginUserVO loginUserVO = userService.userLogin(userAccount, userPassword, request);
+        //存储到redis中
+        redisUtil.set(session.getId(), JsonUtil.obj2String(loginUserVO), 2592000);
+        //生成cookie
+        CookieUtil.writeLoginToken(session.getId(),response);
+
+
         return ResultUtils.success(loginUserVO);
     }
 
@@ -99,10 +121,15 @@ public class UserController {
      * @return
      */
     @PostMapping("/logout")
-    public BaseResponse<Boolean> userLogout(HttpServletRequest request) {
+    public BaseResponse<Boolean> userLogout(HttpServletRequest request,HttpServletResponse response) {
+        String loginToken = CookieUtil.readLoginToken(request);
         if (request == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
+        //删除种在浏览器的cookie
+        CookieUtil.deleteLoginToken(request,response);
+        //删除缓存
+        redisUtil.del(loginToken);
         boolean result = userService.userLogout(request);
         return ResultUtils.success(result);
     }

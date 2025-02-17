@@ -20,10 +20,6 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
@@ -116,6 +112,19 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--&lt;!&ndash;   阿里云短信服务依赖，作用是发送短信验证码    &ndash;&gt;-->
+        <!--<dependency>-->
+        <!--    <groupId>com.aliyun</groupId>-->
+        <!--    <artifactId>aliyun-java-sdk-core</artifactId>-->
+        <!--    <version>4.5.16</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>com.aliyun</groupId>-->
+        <!--    <artifactId>aliyun-java-sdk-dysmsapi</artifactId>-->
+        <!--    <version>2.1.0</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
     <build>
